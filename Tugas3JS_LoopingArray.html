@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Tugas 3</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>TUGAS 3 JS<br> LOOPING , ARRAY </h1>
+    <hr color="white">
+    <div class="center">
+        <a class="button" href="index.html">Klik untuk kembali ke soal</a>
+    </div>
+    <h2>Hasil Penyelesaian Tugas 3 JS</h2>
+</body>
+</html>
+
+<script>
+    // Mendefinisikan objek-objek siswa beserta nama dan nilai
+    let p1 = {nama:"Muhammad", nilai:98};
+    let p2 = {nama:"Nur", nilai:88};
+    let p3 = {nama:"Rizqi", nilai:82};
+    let p4 = {nama:"Saputra", nilai:53};
+    let p5 = {nama:"Putra", nilai:75};
+
+    // Membuat array yang berisi objek-objek siswa
+    let person = [p1,p2,p3,p4,p5];
+</script>
+
+<h3>
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Nilai</th>
+                <th>Grade</th>
+                <th>Predikat</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                // Mendefinisikan elemen-elemen tabel dan mengisi data
+                var no = 1; // Variabel untuk nomor urut siswa dalam tabel
+                for (p of person){
+                    let ket = (p.nilai >= 60)? "Lulus" : "Gagal"; // Baris ini mengatur keterangan status kelulusan siswa dengan menggunakan operator ternary dengan menggunakan if multikondisi
+
+                    // Mengatur grade siswa berdasarkan nilai yang diperoleh menggunakan if multikondisi
+                    let grade = '';
+                    if(p.nilai >= 90) {
+                        grade = 'A';
+                    }else if(p.nilai >= 80) {
+                        grade = 'B';
+                    }else if(p.nilai >= 70) {
+                        grade = 'C';
+                    }else if(p.nilai >= 60) {
+                        grade = 'D';
+                    } else {
+                        grade = 'E';
+                    }
+
+                    // Mengatur predikat berdasarkan grade siswa menggunakan switch case
+                    let predikat = '';
+                    switch (grade) {
+                        case 'A':
+                            predikat = 'Sangat Baik';
+                            break;
+                        case 'B':
+                            predikat = 'Baik';
+                            break;
+                        case 'C':
+                            predikat = 'Cukup';
+                            break;
+                        case 'D':
+                            predikat = 'Kurang';
+                            break;
+                        case 'E':
+                            predikat = 'Sangat Kurang';
+                            break;
+                    }
+
+                   // Mengatur warna selang-seling pada kolom tabel
+                    let warna = no % 2 == 0 ? "#1E90FF" : "#4682B4";
+
+                    // menampilkan data ke dalam table
+                    document.write(`<tr bgcolor="${warna}">
+                        <td>${no++}</td>
+                        <td>${p.nama}</td>
+                        <td>${p.nilai}</td>
+                        <td>${grade}</td>
+                        <td>${predikat}</td>
+                        <td>${ket}</td>
+                    </tr>`);
+                    
+                }
+            </script>
+        </tbody>
+    </table>
+</h3>
